@@ -55,7 +55,7 @@ def start(update: Update, context: CallbackContext):
     logger.info(f'Usuario: {usuario} ha iniciado en el bot.')
     
     update.message.reply_markdown_v2(
-        text='😉 ÍNSULA PENDIENTES A LO CUBANO 😉',
+        text=f'Hola {update.effective_user.first_name} bienvenid@ a Ínsula \nPendientes a lo cubano \nEs un placer atenderte. \nInteractúa con nuestro bot para que conozcas mas detalles de nuestros productos y servicios. \nGracias por preferirnos 😉',
         reply_markup=markup
     )
     return GETOPTION
@@ -75,19 +75,22 @@ def redes(update: Update, context: CallbackContext):
     logger.info(f'Usuario: {usuario} esta viendo info de redes Insula.')
     
     update.message.reply_text(
-        text="""La mejor modelo de 💎Ínsula eres tú.
+        text="""La mejor modelo de 💎Ínsula eres tú.\n
             Escoge👇🏻, encarga🛍 y luce🤩 tus #pendientes_a_lo_cubano
-            https://wa.me/c/5358037785
-            Síguenos y apoya nuestro proyecto por acá 👇🏻
+            https://wa.me/c/5358037785 \n
+            Síguenos y apoya nuestro proyecto por acá 👇🏻\n
             https://www.instagram.com/insula_pendientes_a_lo_cubano/
-
-            Estamos en telegram😉👇🏻
-            @pendientesAloCubano
+            \n\n
+            Estamos en telegram😉👇🏻\n
+            @pendientesAloCubano\n
             https://t.me/pendientesAloCubano
-
+            \n\n
             WhatsApp.com (https://wa.me/c/5358037785)
-            View Elizabeth's Catalog on WhatsApp
-            Learn more about their products & services"""
+            \n\n
+            Siguenos en Facebook😉👇🏻\n
+            https://www.facebook.com/Ínsula-Pendientes-a-lo-cubano-101855228956424
+            
+            """
     )
     return GETOPTION
 
@@ -98,7 +101,7 @@ def who_are(update: Update, context: CallbackContext):
     
     update.message.chat.send_photo(
         photo=open('./img/logo.jpg', 'rb'), 
-        caption="Ínsula es sinónimo de isla🏝. La intención esencial es defender un concepto basado en la cubanía❤️💙🤍. Por Ínsula nos referimos a la Isla de Cuba🇨🇺. Nuestros diseños resultan elementos esenciales de nuestra identidad cubana💎."
+        caption="💎Ínsula es un pequeño emprendimiento dedicado a la confección de aretes de cerámica fría. \n💎Todo el proceso es manufacturado y diseñado sobre la base de elementos identitarios de la cubanía❤️💙🤍. \n💎Ínsula es una apuesta por resaltar lo cubano, lo típico, lo nuestro. "
     )
     return GETOPTION
 
