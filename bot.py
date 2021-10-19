@@ -54,8 +54,8 @@ def start(update: Update, context: CallbackContext):
     usuario = update.effective_user.full_name
     logger.info(f'Usuario: {usuario} ha iniciado en el bot.')
     
-    update.message.reply_markdown_v2(
-        text=f'Hola {update.effective_user.first_name} bienvenid@ a Ínsula \nPendientes a lo cubano \nEs un placer atenderte\. \nInteractúa con nuestro bot para que conozcas mas detalles de nuestros productos y servicios\. \nGracias por preferirnos 😉',
+    update.message.reply_text(
+        text=f'Hola {update.effective_user.first_name} bienvenid@ a Ínsula \nPendientes a lo cubano \nEs un placer atenderte. \nInteractúa con nuestro bot para que conozcas mas detalles de nuestros productos y servicios. \nGracias por preferirnos 😉',
         reply_markup=markup
     )
     return GETOPTION
