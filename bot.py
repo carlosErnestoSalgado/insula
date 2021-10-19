@@ -9,7 +9,7 @@ from telegram.ext.updater import Updater
 from telegram.inline.inlinekeyboardbutton import InlineKeyboardButton
 from telegram.inline.inlinekeyboardmarkup import InlineKeyboardMarkup
 
-from sender import collection_1, send_collection_all
+from sender import collection_1, send_collection_all, comment_save  
 
 
 # Configuracion del loogin
@@ -129,6 +129,8 @@ def save_comment(update: Update, context: CallbackContext):
         chat_id=1020450443,
         text=f'Comentario: \nUsuario: {user_name}\nFecha: {date} \nComentario: \n{comment}' 
     )
+    save_text = f'Comentario: \nUsuario: {user_name}\nFecha: {date} \nComentario: \n{comment}' 
+    comment_save(save_text)
     return GETOPTION
 
 def send_collection(update: Update, context: CallbackContext):
@@ -146,6 +148,10 @@ def spam(update: Update, context: CallbackContext):
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text='Contactatenos 🤓', url='https://t.me/CarlosSalgado')]])
     )
     return GETOPTION
+def fallback(update: Update, context: CallbackContext):
+    update.message.reply_text(
+        text='Disculpa! No puedo entenderte.'
+    )
 def main():
     # TOKEN
     TOKEN = os.getenv('TOKEN')
@@ -176,7 +182,7 @@ def main():
                 ],
             GETCOMMENTS: [ MessageHandler(Filters.text, save_comment)]
         },
-        fallbacks=[]
+        fallbacks=[MessageHandler(Filters.all, fallback)]
     )
     # Agregar la conversacion
     dispatcher.add_handler(conv_handler)
