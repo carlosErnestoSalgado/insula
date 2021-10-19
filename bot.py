@@ -75,18 +75,18 @@ def redes(update: Update, context: CallbackContext):
     logger.info(f'Usuario: {usuario} esta viendo info de redes Insula.')
     
     update.message.reply_text(
-        text="""La mejor modelo de 💎Ínsula eres tú.\n
+                text="""La mejor modelo de 💎Ínsula eres tú.
 Escoge👇🏻, encarga🛍 y luce🤩 tus #pendientes_a_lo_cubano
-https://wa.me/c/5358037785 \n
-Síguenos y apoya nuestro proyecto por acá 👇🏻\n
-https://www.instagram.com/insula_pendientes_a_lo_cubano/\n\n
-Estamos en telegram😉👇🏻\n
-@pendientesAloCubano\n
+https://wa.me/c/5358037785
+
+Síguenos y apoya nuestro proyecto por acá 👇🏻
+https://www.instagram.com/insula_pendientes_a_lo_cubano/
+
+Estamos en telegram😉👇🏻
+@pendientesAloCubano
 https://t.me/pendientesAloCubano
-\n\n
-WhatsApp.com (https://wa.me/c/5358037785)
-\n\n
-Siguenos en Facebook😉👇🏻\n
+
+Siguenos en Facebook😉👇🏻
 https://www.facebook.com/Ínsula-Pendientes-a-lo-cubano-101855228956424
             """
     )
