@@ -76,20 +76,18 @@ def redes(update: Update, context: CallbackContext):
     
     update.message.reply_text(
         text="""La mejor modelo de 💎Ínsula eres tú.\n
-            Escoge👇🏻, encarga🛍 y luce🤩 tus #pendientes_a_lo_cubano
-            https://wa.me/c/5358037785 \n
-            Síguenos y apoya nuestro proyecto por acá 👇🏻\n
-            https://www.instagram.com/insula_pendientes_a_lo_cubano/
-            \n\n
-            Estamos en telegram😉👇🏻\n
-            @pendientesAloCubano\n
-            https://t.me/pendientesAloCubano
-            \n\n
-            WhatsApp.com (https://wa.me/c/5358037785)
-            \n\n
-            Siguenos en Facebook😉👇🏻\n
-            https://www.facebook.com/Ínsula-Pendientes-a-lo-cubano-101855228956424
-            
+Escoge👇🏻, encarga🛍 y luce🤩 tus #pendientes_a_lo_cubano
+https://wa.me/c/5358037785 \n
+Síguenos y apoya nuestro proyecto por acá 👇🏻\n
+https://www.instagram.com/insula_pendientes_a_lo_cubano/\n\n
+Estamos en telegram😉👇🏻\n
+@pendientesAloCubano\n
+https://t.me/pendientesAloCubano
+\n\n
+WhatsApp.com (https://wa.me/c/5358037785)
+\n\n
+Siguenos en Facebook😉👇🏻\n
+https://www.facebook.com/Ínsula-Pendientes-a-lo-cubano-101855228956424
             """
     )
     return GETOPTION
