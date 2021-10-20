@@ -137,7 +137,16 @@ def save_comment(update: Update, context: CallbackContext):
     return GETOPTION
 
 def show_all(update: Update, context: CallbackContext):
-    coment_show(update)
+    query = update.callback_query
+    query.answer('Ok')
+    comments = coment_show()
+    
+    query.edit_message_text(
+        text=f"""
+Todos los comentarios:
+{comments}
+        """
+    )
     return GETOPTION
 
 def send_collection(update: Update, context: CallbackContext):

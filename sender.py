@@ -52,9 +52,7 @@ def comment_save(string):
     fichero_coment.write(comentarios[-1])
     fichero_coment.close()
     
-def coment_show(update):
+def coment_show():
     fichero = open('coments.txt','r', encoding='UTF-8')
     coments = fichero.read()
-    update.message.reply_text(
-            text=coments
-        )
+    return coments
