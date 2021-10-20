@@ -2,14 +2,14 @@ import logging
 import os
 
 from telegram import Update, ReplyKeyboardMarkup
-from telegram.ext import CommandHandler, MessageHandler, Filters
+from telegram.ext import CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram.ext.callbackcontext import CallbackContext
 from telegram.ext.conversationhandler import ConversationHandler
 from telegram.ext.updater import Updater
 from telegram.inline.inlinekeyboardbutton import InlineKeyboardButton
 from telegram.inline.inlinekeyboardmarkup import InlineKeyboardMarkup
 
-from sender import collection_1, send_collection_all, comment_save  
+from sender import collection_1, send_collection_all, comment_save, coment_show  
 
 
 # Configuracion del loogin
@@ -127,10 +127,17 @@ def save_comment(update: Update, context: CallbackContext):
     comment = update.message.text
     context.bot.sendMessage(
         chat_id=1020450443,
-        text=f'Comentario: \nUsuario: {user_name}\nFecha: {date} \nComentario: \n{comment}' 
+        text=f'Comentario: \nUsuario: {user_name}\nFecha: {date} \nComentario: \n{comment}',
+        reply_markup=InlineKeyboardMarkup([
+            [InlineKeyboardButton(text='Mostrar Todos los Comentarios',callback_data='show')]
+            ])
     )
     save_text = f'Comentario: \nUsuario: {user_name}\nFecha: {date} \nComentario: \n{comment}' 
     comment_save(save_text)
+    return GETOPTION
+
+def show_all(update: Update, context: CallbackContext):
+    coment_show(update)
     return GETOPTION
 
 def send_collection(update: Update, context: CallbackContext):
@@ -186,6 +193,7 @@ def main():
     )
     # Agregar la conversacion
     dispatcher.add_handler(conv_handler)
+    dispatcher.add_handler(CallbackQueryHandler(pattern='show', callback=show_all))
     # START BOT
     updater.start_polling()
     

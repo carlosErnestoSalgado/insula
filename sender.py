@@ -45,4 +45,16 @@ def send_collection_all(update: Update, context: CallbackContext, name_coll):
                     caption=collection_4[i],
                     reply_markup=markup
             )        
+comentarios = []    
+def comment_save(string):
+    comentarios.append(string)
+    fichero_coment = open('coments.txt', 'a+')
+    fichero_coment.write(comentarios[-1])
+    fichero_coment.close()
     
+def coment_show(update):
+    fichero = open('coments.txt','r', encoding='UTF-8')
+    coments = fichero.read()
+    update.message.reply_text(
+            text=coments
+        )
