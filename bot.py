@@ -126,13 +126,13 @@ def save_comment(update: Update, context: CallbackContext):
     date = update.message.date.date()
     comment = update.message.text
     context.bot.sendMessage(
-        chat_id=1020450443,
+        chat_id=1088981095,
         text=f'Comentario: \nUsuario: {user_name}\nFecha: {date} \nComentario: \n{comment}',
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton(text='Mostrar Todos los Comentarios',callback_data='show')]
             ])
     )
-    save_text = f'Comentario: Usuario: {user_name}Fecha: {date} Comentario: {comment}' 
+    save_text = f'Usuario: {user_name}, Fecha: {date}, Comentario: {comment}' 
     comment_save(save_text)
     return GETOPTION
 
