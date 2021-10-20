@@ -54,5 +54,5 @@ def comment_save(string):
     
 def coment_show():
     fichero = open('coments.txt','r', encoding='UTF-8')
-    coments = fichero.read()
+    coments = fichero.readlines()
     return coments

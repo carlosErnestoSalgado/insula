@@ -132,14 +132,14 @@ def save_comment(update: Update, context: CallbackContext):
             [InlineKeyboardButton(text='Mostrar Todos los Comentarios',callback_data='show')]
             ])
     )
-    save_text = f'Comentario: \nUsuario: {user_name}\nFecha: {date} \nComentario: \n{comment}' 
+    save_text = f'Comentario: Usuario: {user_name}Fecha: {date} Comentario: {comment}' 
     comment_save(save_text)
     return GETOPTION
 
 def show_all(update: Update, context: CallbackContext):
     query = update.callback_query
     query.answer('Ok')
-    comments = coment_show()
+    comments = '\n'.join(coment_show())
     
     query.edit_message_text(
         text=f"""
