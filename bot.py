@@ -26,7 +26,7 @@ reply_keyboard = [
     ['💎Nuestras Colecciones💎'],
     ['Redes 💻📱📸', 'Quiénes somos❓'],
     ['Por qué #pendientes_a_lo_cubano❓🤔'],
-    ['Comentar ✍️✍️'],
+    ['Comentar ✍️✍️', 'Diseña con nosotros 🎨🌈'],
     ['Quiero un BOT así😍']
 ]
 markup = ReplyKeyboardMarkup(reply_keyboard, resize_keyboard=True)
@@ -38,6 +38,7 @@ btn_3 = '^Quiénes somos❓$'
 btn_4 = '^Por qué #pendientes_a_lo_cubano❓🤔$'
 btn_5 = '^Comentar ✍️✍️$'
 btn_6 = '^Quiero un BOT así😍$'
+btn_7 = '^Diseña con nosotros 🎨🌈$'
 
 # Teclado de Colecciones
 colection_keyboard = [
@@ -164,6 +165,16 @@ def spam(update: Update, context: CallbackContext):
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text='Contactatenos 🤓', url='https://t.me/CarlosSalgado')]])
     )
     return GETOPTION
+def desing(update: Update, context: CallbackContext):
+    update.message.reply_text(
+        text='En Ínsula tu eres parte del equipo😉 Todos los diseños son totalmente personalizables y podemos recrear todas tus ideas, y crear juntos. Anímate y diseña con nosotros 🎨🌈😉. Todas las alternativas para que tus #pendientes_a_lo_cubano se parezcan más a ti🥰🛍💎',
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton(text='Comparte tu idea 😉', callback_data='#')],
+                [InlineKeyboardButton(text='Telegram', url='https://t.me/Elizabeth_Salgado'), InlineKeyboardButton(text='Whatsapp', url='https://wa.me/5358037785')]]
+        )
+    )
+    return GETOPTION
+
 def fallback(update: Update, context: CallbackContext):
     update.message.reply_text(
         text='Disculpa! No puedo entenderte.'
@@ -187,7 +198,8 @@ def main():
                 MessageHandler(Filters.regex(btn_3), who_are),
                 MessageHandler(Filters.regex(btn_4), what_pc),
                 MessageHandler(Filters.regex(btn_5), to_comment),
-                MessageHandler(Filters.regex(btn_6), spam)
+                MessageHandler(Filters.regex(btn_6), spam),
+                MessageHandler(Filters.regex(btn_7), desing)
             ],
             GETSUBMENU:[ 
                 MessageHandler(Filters.regex('^Volver al menú↩️$'), start),
