@@ -204,9 +204,9 @@ def main():
     dispatcher.add_handler(conv_handler)
     dispatcher.add_handler(CallbackQueryHandler(pattern='show', callback=show_all))
     # START BOT
-    PORT = int(os.environ.get("PORT","80"))
+    PORT = int(os.environ.get("PORT","8443"))
     HEROKU_NAME = os.environ.get('HEROKU_NAME')
-    updater.start_webhook(listen='127.0.0.1', port=PORT, url_path=TOKEN, webhook_url=f'https://{HEROKU_NAME}.herokuapp.com/{TOKEN}')
+    updater.start_webhook(listen='0.0.0.0', port=PORT, url_path=TOKEN, webhook_url=f'https://{HEROKU_NAME}.herokuapp.com/{TOKEN}')
     updater.idle()
 
 if __name__ == '__main__':
